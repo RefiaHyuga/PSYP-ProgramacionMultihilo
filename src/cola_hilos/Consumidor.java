@@ -10,13 +10,12 @@ package cola_hilos;
  */
 class Consumidor implements Runnable {
 
-    private Cola_lenta lacola;
-    private int num;
-
-    public Consumidor(Cola_lenta lacola, int num) {
-        System.out.println("Soy el consumidor " + num);
+    private ColaLenta lacola;
+   
+    public Consumidor(ColaLenta lacola) {
+        System.out.println("Consumidor salvaje aparecio!!");
         this.lacola = lacola;
-        this.num = num;
+        
     }
 
     @Override
@@ -25,10 +24,12 @@ class Consumidor implements Runnable {
 
         for (int i = 1; i <= 10; i++) {
             try {
-                System.out.printf("Hilo %d Extraigo %d\n", num, lacola.Desacola());
+                Thread.sleep(1000);
+                System.out.println("Hilo Consumidor uso Desacola -->" + lacola.Desacola());
             } catch (Exception ex) {
-                System.out.println("Hilo " + num + " " + ex.getMessage());
+                System.out.println("Pero fallo!! " + ex.getMessage());
             }
         }
+        System.out.println("Consumidor se ha debilitado");
     }
 }

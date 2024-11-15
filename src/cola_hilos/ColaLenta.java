@@ -8,10 +8,11 @@ package cola_hilos;
  *
  * @author pedro
  */
-public class Cola_lenta implements ICola {
+public class ColaLenta implements ICola {
 
     private int head, tail, capacidad, numelementos;
     Object datos[];
+    CanvasCola c;
     
     /**
      * Constructor de la clase. Inicializa la cola y los atributos de la clase.
@@ -20,12 +21,13 @@ public class Cola_lenta implements ICola {
      * el vector
      * 
      */
-    public Cola_lenta(int capacidad){
+    public ColaLenta(int capacidad, CanvasCola canv){
         datos = new Object[capacidad];
         this.capacidad=capacidad;
         numelementos=0;
         head=0;
         tail=0;
+        c = canv;
     }
 
     /**
@@ -44,15 +46,16 @@ public class Cola_lenta implements ICola {
      * @throws Exception si la cola está llena
      */
     @Override
-    public void Acola(Object elemento) throws Exception{
+    public synchronized void Acola(Object elemento) throws Exception{
         if(!colallena()){
             datos[head]=elemento;
-            Thread.sleep(10);
             head=(head+1)%capacidad;
-            Thread.sleep(10);
             numelementos++;
+             c.representa(datos,head,tail,capacidad,numelementos);
+             Thread.sleep(1000);
         }
         else{
+            c.avisa(true);
             throw new Exception("COLA LLENA");
         }
     }
@@ -63,16 +66,17 @@ public class Cola_lenta implements ICola {
      * @throws Exception si la cola está vacia
      */
     @Override
-    public Object Desacola() throws Exception{
+    public synchronized Object Desacola() throws Exception{
         if(!colavacia()){
             Object valor=datos[tail];
-            Thread.sleep(10);
             tail=(tail+1)%capacidad;
-            Thread.sleep(10);
             numelementos--;
+            c.representa(datos,head,tail,capacidad,numelementos);
+             Thread.sleep(1000);
             return valor;
         }
         else{
+            c.avisa(false);
             throw new Exception("COLA VACIA");
         }
     }

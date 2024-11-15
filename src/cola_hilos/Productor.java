@@ -4,9 +4,6 @@
  */
 package cola_hilos;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author pedro
@@ -14,10 +11,10 @@ import java.util.logging.Logger;
 
 class Productor extends Thread {
 
-    private Cola_lenta lacola;
+    private ColaLenta lacola;
 
-    public Productor(Cola_lenta lacola) {
-        System.out.println("Soy el prodcutor");
+    public Productor(ColaLenta lacola) {
+        System.out.println("Prodcutor salvaje aparecio!!");
         this.lacola = lacola;
     }
 
@@ -26,10 +23,13 @@ class Productor extends Thread {
 
         for (int i = 1; i <= 10; i++) {
             try {
+                Thread.sleep(1000);
+                System.out.println("Hilo productor uso Acolar --> "+i);
                 lacola.Acola(i);
             } catch (Exception ex) {
-                Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Pero fallo "+ex.getMessage());
             }
         }
+        System.out.println("Productor se ha debilitado");
     }
 }
