@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cola;
+package cola_hilos;
 
 /**
  *
- * @author Refia Hyuga
+ * @author pedro
  */
 public interface ICola {
     /**

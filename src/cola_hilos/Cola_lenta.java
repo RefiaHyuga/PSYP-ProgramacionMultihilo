@@ -2,15 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cola;
+package cola_hilos;
 
 /**
  *
- * @author Refia Hyuga
+ * @author pedro
  */
-public class Cola implements ICola {
+public class Cola_lenta implements ICola {
 
-    private int tail, head, capacidad, numelementos;
+    private int head, tail, capacidad, numelementos;
     Object datos[];
     
     /**
@@ -20,12 +20,12 @@ public class Cola implements ICola {
      * el vector
      * 
      */
-    public Cola(int capacidad){
+    public Cola_lenta(int capacidad){
         datos = new Object[capacidad];
         this.capacidad=capacidad;
         numelementos=0;
-        tail=0;
         head=0;
+        tail=0;
     }
 
     /**
@@ -46,8 +46,10 @@ public class Cola implements ICola {
     @Override
     public void Acola(Object elemento) throws Exception{
         if(!colallena()){
-            datos[tail]=elemento;
-            tail=(tail+1)%capacidad;
+            datos[head]=elemento;
+            Thread.sleep(10);
+            head=(head+1)%capacidad;
+            Thread.sleep(10);
             numelementos++;
         }
         else{
@@ -63,8 +65,10 @@ public class Cola implements ICola {
     @Override
     public Object Desacola() throws Exception{
         if(!colavacia()){
-            Object valor=datos[head];
-            head=(head+1)%capacidad;
+            Object valor=datos[tail];
+            Thread.sleep(10);
+            tail=(tail+1)%capacidad;
+            Thread.sleep(10);
             numelementos--;
             return valor;
         }
@@ -81,7 +85,7 @@ public class Cola implements ICola {
     @Override
     public Object Primero() throws Exception{
         if(!colavacia()){
-            return datos[head];
+            return datos[tail];
         }
         else{
             throw new Exception("cola vacia");

@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/home/pedro/Dropbox/Concurrencia/Practicas_PCD_2012_13/Practica1_Introduccion/Cola/src/cola/Cola.java</file>
+        <file>file:/home/pedro/Dropbox/Concurrencia/Practicas_PCD_2012_13/Practica2_Hilos/Cola_hilos/src/cola_hilos/Cola_lenta.java</file>
+        <file>file:/home/pedro/Dropbox/Concurrencia/Practicas_PCD_2012_13/Practica2_Hilos/Cola_hilos/src/cola_hilos/ICola.java</file>
+        <file>file:/home/pedro/Dropbox/Concurrencia/Practicas_PCD_2012_13/Practica2_Hilos/Cola_hilos/src/cola_hilos/UsaCola.java</file>
+        <file>file:/home/pedro/Dropbox/Concurrencia/Practicas_PCD_2012_13/Practica2_Hilos/Cola_hilos/src/cola_hilos/Consumidor.java</file>
+        <file>file:/home/pedro/Dropbox/Concurrencia/Practicas_PCD_2012_13/Practica2_Hilos/Cola_hilos/src/cola_hilos/Productor.java</file>
     </open-files>
 </project-private>
